@@ -1,6 +1,6 @@
-def call(ip,credsId,myWar){
+def call(ip,credsId,warName){
   sshagent(["${credsId}"]){
-    sh "scp -o StricthostKeyChecking=no target/${myWar}.war ec2-user@${ip}:/opt/tomcat8/bin/webapps/"
+    sh "scp -o StricthostKeyChecking=no target/${warName}.war ec2-user@${ip}:/opt/tomcat8/bin/webapps/"
     sh ssh "ec2-user@${ip}:/opt/tomcat8/bin/shutdown.sh"
     sh ssh "ec2-user@${ip}:/opt/tomcat8/bin/startup.sh"
 }
