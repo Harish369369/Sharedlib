@@ -1,5 +1,5 @@
 def call(conf){
-  def repoName = conf[]
+  def repoName = conf["repoName"]
   def pomFile = readMavenPom file: 'pom.xml'
   def version = pomFile.version
   def artifact Id = pomFile.artifactId
